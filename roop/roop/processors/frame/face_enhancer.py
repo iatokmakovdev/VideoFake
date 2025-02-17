@@ -15,6 +15,10 @@ THREAD_SEMAPHORE = threading.Semaphore()
 THREAD_LOCK = threading.Lock()
 NAME = 'ROOP.FACE-ENHANCER'
 
+def pre_check() -> bool:
+    download_directory_path = resolve_relative_path('../models')
+    conditional_download(download_directory_path, ['https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.4.pth'])
+    return True
 
 def get_face_enhancer() -> Any:
     global FACE_ENHANCER
@@ -39,12 +43,6 @@ def clear_face_enhancer() -> None:
     global FACE_ENHANCER
 
     FACE_ENHANCER = None
-
-
-def pre_check() -> bool:
-    download_directory_path = resolve_relative_path('../models')
-    conditional_download(download_directory_path, ['https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.4.pth'])
-    return True
 
 
 def pre_start() -> bool:
