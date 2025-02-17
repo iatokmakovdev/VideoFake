@@ -17,4 +17,3 @@ tensorflow
 protobuf
 tqdm
 gfpgan
-gfpgan.utils GFPGANer
